@@ -11,7 +11,7 @@ Otherwise you can email me.
 pls help :(  
 I rly need help.
 
-  https://github.com/bryangohcx/Kattis-Answers/tree/main/millionairemadness
+1. https://github.com/bryangohcx/Kattis-Answers/tree/main/millionairemadness
 
 Best Regards,  
 Bryan Goh
