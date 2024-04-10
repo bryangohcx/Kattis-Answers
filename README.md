@@ -7,6 +7,12 @@ Hello there! This repository contains my very cool solutions to various problems
 If you have any opinions on the quality of the code you can keep your opinion to yourself.  
 Otherwise you can email me.
 
+## These are some questions that I am struggling with   
+pls help :(  
+I rly need help.
+
+  https://github.com/bryangohcx/Kattis-Answers/tree/main/millionairemadness
+
 Best Regards,  
 Bryan Goh
 
