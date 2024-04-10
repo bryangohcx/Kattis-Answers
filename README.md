@@ -7,7 +7,7 @@ Hello there! This repository contains my very cool solutions to various problems
 If you have any opinions on the quality of the code you can keep your opinion to yourself.
 Otherwise you can email me.
 
-Best Regards,
+Best Regards,  
 Bryan Goh
 
 <img src="resources/pokemon-funny-anime-pichu-butt-slap-1ofphbqkmajq6ppn.gif"  height="250" />
