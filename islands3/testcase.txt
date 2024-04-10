@@ -1,0 +1,26 @@
+Sample Input 1
+4 5
+CCCCC
+CCCCC
+CCCCC
+CCCCC
+Sample Output 2
+0
+
+Sample Input 2	
+3 2
+LW
+CC
+WL
+Sample Output 2
+1
+
+Sample Input 3
+5 5
+LWCLC
+LLCWW
+WWWWW
+LLLLW
+WCWWL
+Sample Output 3
+3
