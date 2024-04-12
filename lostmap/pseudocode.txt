@@ -1,2 +1,0 @@
-read using a MST and return the results of the MST
-    
