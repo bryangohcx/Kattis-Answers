@@ -1,18 +1,9 @@
-Problem A
-Islands
-You are mapping a faraway planet using a satellite. The planet’s surface can be modeled as a grid. The satellite has captured an image of the surface. Each grid square is either land (denoted as ‘L’), water (denoted as ‘W’), or covered by clouds (denoted as ‘C’). Clouds mean that the surface could either be land or water; you cannot tell.
+store the input as a matrix O(MN)
 
-An island is a region of land where every grid cell in the island is connected to every other by some path, and every leg of the path only goes up, down, left or right.
-
-Given an image, determine the minimum number of islands that is consistent with the given image.
-
-Input
-Each input will consist of a single test case. Note that your program may be run multiple times on different inputs. The first line of input contains two integers, 
- and 
- (
-), which are the number of rows and the number of columns of the image. The next 
- lines will each contain exactly 
- characters, consisting only of ‘L’ (representing Land), ‘W’ (representing Water), and ‘C’ (representing Clouds).
-
-Output
-Output a single integer, which is the minimum number of islands possible.
+go through the matrix > v O(MN)
+if it is a land mass add 1 to the island counter
+look at the 4 corners around each land mass if they exist(within the frame) O(1)
+- ? -
+? x ?
+- ? -
+if it is a cloud update it to a land mass

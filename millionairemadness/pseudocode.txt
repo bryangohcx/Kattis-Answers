@@ -1,3 +1,0 @@
-I want to create a cost function to define the cost to reach each position in the vault
-based on the cost funcition at each point, I will update the values until we reach the end
-we can try to use a graph where the graph has to retain a cost , a left right up and down node and 

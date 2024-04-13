@@ -1,9 +1,0 @@
-//open a scanner
-//save int n
-//create a ufds with n elements
-// save int m
-// for m times read the input first integer is the number u want to transfer items to in the ufds
-//second input is the elements you want to transfer to that set
-//if they are already in the same set skip the transfer
-//otherwise do the transfer and n--
-//print n
