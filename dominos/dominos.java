@@ -1,82 +1,86 @@
 package dominos;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.util.Stack;
+import java.util.LinkedList;
+import java.util.List;
 
 public class dominos {
-    public static void main(String[] args) {
-        //open a scanner
-        Scanner scanner = new Scanner(System.in);
-        
-        //read first int
-        int T = scanner.nextInt();
-        for (int X = 0; X < T; X++) {
-            //save int n
-            int n = scanner.nextInt();
-        
-            //create a ufds with n elements
-            UFDS ufds = new UFDS(n+1);
-        
-            // save int m
-            int m = scanner.nextInt();
-        
-            // for m times read the input first integer is the number u want to transfer items to in the ufds
-            // second input is the elements you want to transfer to that set
-            for (int i = 0; i < m; i++) {
-                int u = scanner.nextInt();
-                int v = scanner.nextInt();
-            
-                // if they are already in the same set skip the transfer
-                if (ufds.find(u) == ufds.find(v)) {
-                continue;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int q = Integer.parseInt(br.readLine());
+        for (int i = 0; i < q; i++) {
+            int count = 0;
+            String[] line = br.readLine().split(" ");
+            int n = Integer.parseInt(line[0]);
+            int m = Integer.parseInt(line[1]);
+            List<Integer>[] AdjL = new LinkedList[n];
+            boolean[] visited = new boolean[n];
+            Stack<Integer> order = new Stack<>();
+            for (int j = 0; j < n; j++) {
+                AdjL[j] = new LinkedList<>();
             }
-            
-            // otherwise do the transfer and n--
-            ufds.union(u, v);
-            n--;
+            for (int j = 0; j < m; j++) {
+                line = br.readLine().split(" ");
+                int knock = Integer.parseInt(line[0]) - 1;
+                int knocked = Integer.parseInt(line[1]) - 1;
+                AdjL[knock].add(knocked);
+            }
+            for (int j = 0; j < n; j++) {
+                if (!visited[j]) {
+                    arrange(j, AdjL, visited, order);
+                }
+            }
+            // Reset visited array for the second DFS
+            for (int j = 0; j < n; j++) {
+                visited[j] = false;
+            }
+            while (!order.empty()) {
+                int j = order.pop();
+                if (!visited[j]) {
+                    count++;
+                    topple(j, AdjL, visited);
+                }
+            }
+            System.out.println(count);
         }
-        
-        // print n
-        System.out.println(n);
-        }
+        br.close();
+    }
 
-        
-        // close the scanner
-        scanner.close();
+    public static void topple(int j, List<Integer>[] AdjL, boolean[] visited) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(j);
+        while (!stack.isEmpty()) {
+            int current = stack.pop();
+            if (!visited[current]) {
+                visited[current] = true;
+                for (int next : AdjL[current]) {
+                    if (!visited[next]) {
+                        stack.push(next);
+                    }
+                }
+            }
+        }
     }
-}
 
-class UFDS {
-    private int[] parent;
-    private int[] rank;
-    
-    public UFDS(int n) {
-        parent = new int[n];
-        rank = new int[n];
-        
-        for (int i = 0; i < n; i++) {
-            parent[i] = i;
-            rank[i] = 0;
-        }
-    }
-    
-    public int find(int x) {
-        if (parent[x] != x) {
-            parent[x] = find(parent[x]);
-        }
-        return parent[x];
-    }
-    
-    public void union(int x, int y) {
-        int rootX = find(x);
-        int rootY = find(y);
-        
-        if (rank[rootX] < rank[rootY]) {
-            parent[rootX] = rootY;
-        } else if (rank[rootX] > rank[rootY]) {
-            parent[rootY] = rootX;
-        } else {
-            parent[rootY] = rootX;
-            rank[rootX]++;
+    public static void arrange(int j, List<Integer>[] AdjL, boolean[] visited, Stack<Integer> order) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(j);
+        while (!stack.isEmpty()) {
+            int current = stack.peek();
+            if (!visited[current]) {
+                visited[current] = true;
+                for (int next : AdjL[current]) {
+                    if (!visited[next]) {
+                        stack.push(next);
+                    }
+                }
+            } else {
+                stack.pop();
+                order.push(current);
+            }
         }
     }
 }
