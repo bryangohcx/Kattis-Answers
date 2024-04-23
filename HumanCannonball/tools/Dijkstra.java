@@ -1,9 +1,9 @@
-package HumanCannonball;
+package tools;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
-class Dijkstra {
+public class Dijkstra {
     public static double dijkstra(double[][] adjacencyMatrix, int startNode, int endNode) {
         int V = adjacencyMatrix.length;
         double[] time = new double[V];

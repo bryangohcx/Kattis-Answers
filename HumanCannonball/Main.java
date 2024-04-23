@@ -1,6 +1,6 @@
-package HumanCannonball;
-
 import java.io.*;
+import tools.AdjMatrix;
+import tools.Dijkstra;
 
 public class Main {
     public static void main(String[]args)throws IOException{

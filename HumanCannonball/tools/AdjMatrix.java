@@ -1,7 +1,7 @@
-package HumanCannonball;
+package tools;
 
 public class AdjMatrix {
-    double [][] adjMatrix;
+    public double [][] adjMatrix;
     double [][] vertices;
     int count;
     public AdjMatrix(int n){

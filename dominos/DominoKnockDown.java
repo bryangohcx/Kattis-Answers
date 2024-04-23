@@ -1,7 +1,4 @@
-package dominos;
-
 import java.util.*;
-import java.util.stream.*;
 
 public class DominoKnockDown {
     private int V;   // No. of vertices
